@@ -14,11 +14,12 @@ public class capacitor extends hardwareComponent {
 	
 	// methods:
 	// 	@constructor
-	// 	@setValue: set the capacity
-	// 	@getValue: gets the capacity
+	// 	@setCapacitorValue: set the capacity
+	// 	@getCapacitorValue: gets the capacity
 	
 	// attributes:
-	private float capacitorValue = 0;
+	// -1 means short circuited, e.g. capacity is infinity
+	private float capacitorValue = -1;
 	
 	// methods:
 	/**
@@ -49,5 +50,13 @@ public class capacitor extends hardwareComponent {
 	 */
 	public void setCapacitorValue(float capacitorValue) {
 		this.capacitorValue = capacitorValue;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "C = " + this.getCapacitorValue() + "F with ID: " + this.getId();
 	}
 }

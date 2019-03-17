@@ -76,4 +76,6 @@ abstract class hardwareComponent {
 	public String getId() {
 		return this.id;
 	}
+	
+	public abstract String toString();
 }
