@@ -14,6 +14,7 @@ public class pcb {
 	
 	private Vector<hardwareComponent> hwComponents = null;
 	private Vector<circuitPath> connections = null;
+	private double sum = 0;
 	
 	
 	/**
@@ -40,6 +41,7 @@ public class pcb {
 		if(!this.hwComponents.contains(hw)) {
 			// push it on hwComponents vector since it does not appear to be on it
 			this.hwComponents.add(hw);
+			this.sum += hw.getPrice();
 		}
 		return true;
 	}
@@ -84,8 +86,8 @@ public class pcb {
 			return false;
 		}
 		// add hardwareComponents from connection to this instance
-		this.hwComponents.add(connection.getHwComponent1());
-		this.hwComponents.add(connection.getHwComponent2());
+		this.placeComponent(connection.getHwComponent1());
+		this.placeComponent(connection.getHwComponent2());
 		// add connection to this instance
 		this.connections.add(connection);
 		return true;
@@ -109,9 +111,18 @@ public class pcb {
 	
 	/**
 	 * @author: Alexander
-	 * @description: this method prints the whole pcb information regarding teh connections
+	 * @description: this method prints the whole pcb information regarding the connections
 	 */
 	public void showConnectionDetails() {
 		this.connections.forEach(element -> System.out.println(element.toString()));
+	}
+
+	/**
+	 * @author: darkt
+	 * @description: Getter-method for attribute sum
+	 * @return the sum
+	 */
+	public double getSum() {
+		return sum;
 	}
 }

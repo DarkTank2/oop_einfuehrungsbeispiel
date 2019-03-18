@@ -39,6 +39,7 @@ public class configurator {
 		board.showConnectionDetails();
 		// get the sum and print it
 		System.out.println("Sum: " + board.calculatePrice());
+		System.out.println("Sum aggregated at runtime: " + board.getSum());
 	}
 
 }
